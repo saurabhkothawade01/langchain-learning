@@ -288,24 +288,6 @@ abatch()
 
 Many LangChain components can work together because they follow this common Runnable interface.
 
-For example:
-
-```text
-Prompt
-  ↓
-Runnable
-  ↓
-Model
-  ↓
-Runnable
-  ↓
-Parser
-  ↓
-Runnable
-```
-
-This is the foundation for composing LangChain applications.
-
 ---
 
 # 9. LCEL

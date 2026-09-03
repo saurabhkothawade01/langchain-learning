@@ -375,9 +375,6 @@ Evaluation
 Monitoring
 Testing
 ```
-
-A useful mental model:
-
 ```text
         Your AI Application
                |

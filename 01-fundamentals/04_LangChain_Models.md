@@ -171,47 +171,7 @@ A decorator is...
 
 ---
 
-# 5. Provider Integrations
-
-LangChain separates the core framework from many model-provider integrations.
-
-Conceptually:
-
-```text
-                    LangChain
-                       |
-                Model Interface
-                       |
-       +---------------+---------------+
-       |               |               |
-    OpenAI          Anthropic        Google
-       |               |               |
-      GPT             Claude         Gemini
-```
-
-You install the integration package you need.
-
-Examples:
-
-```bash
-pip install -U langchain-openai
-```
-
-```bash
-pip install -U langchain-anthropic
-```
-
-```bash
-pip install -U langchain-google-genai
-```
-
-```bash
-pip install -U langchain-groq
-```
-
----
-
-# 6. `init_chat_model`
+# 5. `init_chat_model`
 
 LangChain provides a convenient way to initialize chat models using `init_chat_model`.
 
@@ -241,7 +201,7 @@ This gives you a standardized model interface.
 
 ---
 
-# 7. Why Use `init_chat_model`?
+# 6. Why Use `init_chat_model`?
 
 Suppose you want to experiment with different providers.
 
@@ -271,11 +231,9 @@ This is useful for experimentation and model comparison.
 
 ---
 
-# 8. OpenRouter with LangChain
+# 7. OpenRouter with LangChain
 
 OpenRouter provides access to many models through a common API.
-
-A common LangChain approach is to use the OpenAI-compatible integration.
 
 Install:
 
@@ -322,7 +280,7 @@ The `model` value must be a model identifier available through your OpenRouter a
 
 ---
 
-# 9. Calling a Model with `invoke()`
+# 8. Calling a Model with `invoke()`
 
 The simplest way to execute a model is:
 
@@ -354,7 +312,7 @@ String
 
 ---
 
-# 10. Understanding the Response
+# 9. Understanding the Response
 
 A model response is usually more than just a string.
 
@@ -399,7 +357,7 @@ Depending on the provider, the response may contain metadata such as:
 
 ---
 
-# 11. Model Parameters
+# 10. Model Parameters
 
 Models can usually be configured with different parameters.
 
@@ -415,7 +373,7 @@ Important parameters include:
 
 ---
 
-# 12. Temperature
+# 11. Temperature
 
 Temperature controls how deterministic or varied the model's output can be.
 
@@ -454,35 +412,7 @@ Important:
 
 ---
 
-# 13. Temperature Example
-
-Suppose the prompt is:
-
-```text
-Give me a name for a coffee shop.
-```
-
-With lower temperature, the model may produce more predictable results.
-
-With higher temperature, the model may generate more varied results.
-
-Conceptually:
-
-```text
-Temperature = 0
-      ↓
-Consistent style
-
-Temperature = higher
-      ↓
-More variation
-```
-
-Exact behavior depends on the model and provider.
-
----
-
-# 14. Max Output Tokens
+# 12. Max Output Tokens
 
 Models have limits on how much output they can generate.
 
@@ -512,7 +442,7 @@ Controls maximum generated output
 
 ---
 
-# 15. Timeout
+# 13. Timeout
 
 A timeout prevents your application from waiting indefinitely for a model response.
 
@@ -538,7 +468,7 @@ Timeouts become important in production systems.
 
 ---
 
-# 16. Retries
+# 14. Retries
 
 Temporary failures can happen because of:
 
@@ -565,7 +495,7 @@ Do not blindly retry every error. Permanent errors such as invalid API keys usua
 
 ---
 
-# 17. Model Configuration
+# 15. Model Configuration
 
 A model can be configured according to the application.
 
@@ -584,7 +514,7 @@ The exact supported parameters depend on the integration.
 
 ---
 
-# 18. Model Metadata
+# 16. Model Metadata
 
 Model responses can contain metadata.
 
@@ -616,7 +546,7 @@ Metadata becomes useful for:
 
 ---
 
-# 19. Token Usage
+# 17. Token Usage
 
 Models process tokens rather than raw characters.
 
@@ -649,7 +579,7 @@ The exact metadata structure varies by provider.
 
 ---
 
-# 20. Context Window
+# 18. Context Window
 
 A model also has a context window.
 
@@ -688,7 +618,7 @@ The context window is different from the maximum output tokens.
 
 ---
 
-# 21. `invoke()`
+# 19. `invoke()`
 
 `invoke()` is used when you want one complete result.
 
@@ -710,7 +640,7 @@ One Result
 
 ---
 
-# 22. `stream()`
+# 20. `stream()`
 
 `stream()` allows the response to be consumed progressively.
 
@@ -761,7 +691,7 @@ This is especially useful for chat interfaces.
 
 ---
 
-# 23. `batch()`
+# 21. `batch()`
 
 `batch()` allows you to process multiple inputs.
 
@@ -787,7 +717,7 @@ This is useful when you have many independent inputs.
 
 ---
 
-# 24. `ainvoke()`
+# 22. `ainvoke()`
 
 For asynchronous applications:
 
@@ -813,7 +743,7 @@ This is useful in frameworks such as FastAPI and other asynchronous applications
 
 ---
 
-# 25. `astream()`
+# 23. `astream()`
 
 For asynchronous streaming:
 
@@ -839,7 +769,7 @@ Chunk 4
 
 ---
 
-# 26. `abatch()`
+# 24. `abatch()`
 
 For asynchronous batch processing:
 
@@ -863,7 +793,7 @@ Multiple Results
 
 ---
 
-# 27. Model Abstraction
+# 25. Model Abstraction
 
 One major advantage of LangChain is that application code can often interact with different chat models through a common interface.
 
