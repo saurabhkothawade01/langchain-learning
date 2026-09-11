@@ -42,39 +42,7 @@ Advanced Runnable concepts help answer these questions.
 
 ---
 
-# 2. Input and Output Schemas
-
-Every Runnable has an input and an output.
-
-```text
-Input
-  ↓
-Runnable
-  ↓
-Output
-```
-
-For example:
-
-```text
-Prompt
-
-Input:
-{
-    "topic": "LangChain"
-}
-
-        ↓
-
-Output:
-Formatted Prompt
-```
-
-A schema describes the expected structure of data.
-
----
-
-# 3. Input Schema
+# 2. Input Schema
 
 An input schema describes the type or structure of data a Runnable expects.
 
@@ -116,7 +84,7 @@ Input Schema
 
 ---
 
-# 4. Output Schema
+# 3. Output Schema
 
 An output schema describes the type or structure produced by a Runnable.
 
@@ -152,7 +120,7 @@ The final output schema depends on the final Runnable in the chain.
 
 ---
 
-# 5. Why Schemas Matter
+# 4. Why Schemas Matter
 
 Schemas make Runnable workflows easier to understand.
 
@@ -180,7 +148,7 @@ When building larger workflows, understanding the input and output of every comp
 
 ---
 
-# 6. Runnable Configuration
+# 5. Runnable Configuration
 
 Runnables can accept configuration during execution.
 
@@ -219,7 +187,7 @@ The configuration controls execution behavior.
 
 ---
 
-# 7. `RunnableConfig`
+# 6. `RunnableConfig`
 
 LangChain uses the concept of `RunnableConfig` for execution configuration.
 
@@ -243,7 +211,7 @@ The exact configuration options depend on the Runnable and the use case.
 
 ---
 
-# 8. Tags
+# 7. Tags
 
 Tags are labels attached to a Runnable execution.
 
@@ -280,7 +248,7 @@ They are not normally part of the model input.
 
 ---
 
-# 9. Metadata
+# 8. Metadata
 
 Metadata stores additional information about a Runnable execution.
 
@@ -316,7 +284,7 @@ Metadata is useful for attaching contextual information to executions.
 
 ---
 
-# 10. Tags vs Metadata
+# 9. Tags vs Metadata
 
 | Feature | Tags | Metadata |
 |---|---|---|
@@ -349,7 +317,7 @@ Metadata → Details
 
 ---
 
-# 11. Configuration with `with_config()`
+# 10. Configuration with `with_config()`
 
 Instead of passing configuration on every invocation, configuration can be attached to a Runnable.
 
@@ -383,68 +351,7 @@ This is useful when the same configuration should be reused.
 
 ---
 
-# 12. Runtime Configuration
-
-Sometimes we want to change Runnable behavior at runtime.
-
-For example:
-
-```text
-Application
-     ↓
-User / Environment / Request
-     ↓
-Runtime Configuration
-     ↓
-Runnable Behavior
-```
-
-Possible runtime decisions include:
-
-- Which model to use
-- Which parameters to use
-- Which workflow behavior to enable
-
-The important idea is:
-
-> A Runnable can be configured differently for different executions.
-
----
-
-# 13. Configurable Fields
-
-Some Runnable fields can be exposed for runtime configuration.
-
-Conceptually:
-
-```text
-Runnable
-   │
-   ├── Default Configuration
-   │
-   └── Configurable Fields
-           ↓
-     Runtime Overrides
-```
-
-This allows an application to change selected settings without rebuilding the entire workflow.
-
-A conceptual flow:
-
-```text
-Default Runnable
-      ↓
-Runtime Config
-      ↓
-Modified Behavior
-```
-
-The specific fields that can be configured depend on the Runnable.
-
----
-
-
-# 14. Concurrency
+# 11. Concurrency
 
 Concurrency controls how multiple Runnable executions are handled.
 
@@ -472,7 +379,7 @@ The number of operations running simultaneously can be controlled.
 
 ---
 
-# 15. `max_concurrency`
+# 12. `max_concurrency`
 
 A configuration can limit the maximum number of concurrent operations.
 
@@ -510,7 +417,7 @@ Concurrency limits can help:
 
 ---
 
-# 16. Retries
+# 13. Retries
 
 External operations can fail.
 
@@ -552,7 +459,7 @@ result = reliable_chain.invoke(input_data)
 
 ---
 
-# 17. Why Use Retries?
+# 14. Why Use Retries?
 
 Retries can be useful for temporary or transient failures.
 
@@ -579,7 +486,7 @@ The goal is to improve resilience against appropriate failures.
 
 ---
 
-# 18. Retry Configuration
+# 15. Retry Configuration
 
 A conceptual example:
 
@@ -603,7 +510,7 @@ The available retry behavior should be selected according to the needs of the ap
 
 ---
 
-# 19. Fallbacks
+# 16. Fallbacks
 
 A fallback provides an alternative Runnable when the primary Runnable fails.
 
@@ -638,7 +545,7 @@ chain_with_fallback = primary_chain.with_fallbacks(
 
 ---
 
-# 20. Why Use Fallbacks?
+# 17. Why Use Fallbacks?
 
 Fallbacks can improve application reliability.
 
@@ -665,7 +572,7 @@ Possible fallback strategies:
 
 ---
 
-# 21. Retries vs Fallbacks
+# 18. Retries vs Fallbacks
 
 Retries and fallbacks solve different problems.
 
@@ -703,7 +610,7 @@ Fallback Runnable
 
 ---
 
-# 22. Combining Reliability Strategies
+# 19. Combining Reliability Strategies
 
 Retries and fallbacks can be combined.
 
@@ -731,7 +638,7 @@ This creates a more resilient workflow.
 
 ---
 
-# 23. Advanced Runnable Example
+# 20. Advanced Runnable Example
 
 Consider a summarization workflow:
 

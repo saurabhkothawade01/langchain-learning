@@ -292,26 +292,6 @@ Therefore, it supports the same methods:
 chain.invoke(input)
 ```
 
-```python
-await chain.ainvoke(input)
-```
-
-```python
-chain.batch(inputs)
-```
-
-```python
-await chain.abatch(inputs)
-```
-
-```python
-chain.stream(input)
-```
-
-```python
-chain.astream(input)
-```
-
 This is a major benefit of LCEL.
 
 ```text
